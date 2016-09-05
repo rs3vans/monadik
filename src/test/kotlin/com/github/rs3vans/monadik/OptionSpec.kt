@@ -1,9 +1,7 @@
 package com.github.rs3vans.monadik
 
-import com.natpryce.hamkrest.absent
+import com.natpryce.hamkrest.*
 import com.natpryce.hamkrest.assertion.assertThat
-import com.natpryce.hamkrest.equalTo
-import com.natpryce.hamkrest.present
 import org.jetbrains.spek.api.Spek
 import org.jetbrains.spek.api.dsl.describe
 import org.jetbrains.spek.api.dsl.it
@@ -86,6 +84,46 @@ class OptionSpec : Spek({
             val x: Int? = null
             x.ifAbsent { return@it }
             assertThat("failure", x, present())
+        }
+    }
+
+    describe("or operations") {
+        it("should NOT substitute") {
+            val x: Int? = 1
+            val y = x.orElse(2)
+            assertThat(y, equalTo(1))
+        }
+
+        it("should NOT call substitute") {
+            val x: Int? = 1
+            val y = x.orElseGet { 2 }
+            assertThat(y, equalTo(1))
+        }
+
+        it("should NOT throw") {
+            val x: Int? = 1
+            val y = x.orElseThrow { IllegalArgumentException() }
+            assertThat(y, equalTo(1))
+        }
+
+        it("should substitute") {
+            val x: Int? = null
+            val y = x.orElse(2)
+            assertThat(y, equalTo(2))
+        }
+
+        it("should call substitute") {
+            val x: Int? = null
+            val y = x.orElseGet { 2 }
+            assertThat(y, equalTo(2))
+        }
+
+        it("should throw") {
+            val x: Int? = null
+            assertThat(
+                    { x.orElseThrow { IllegalArgumentException() } },
+                    throws(isA<IllegalArgumentException>())
+            )
         }
     }
 })

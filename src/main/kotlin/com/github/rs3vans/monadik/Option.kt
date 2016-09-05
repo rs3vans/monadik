@@ -12,3 +12,9 @@ inline fun <T : Any> T?.fold(left: (T) -> Unit, right: () -> Unit): T? =
 inline fun <T : Any> T?.ifPresent(left: (T) -> Unit): T? = fold(left, {})
 
 inline fun <T : Any> T?.ifAbsent(right: () -> Unit): T? = fold({}, right)
+
+fun <T : Any> T?.orElse(other: T): T = this ?: other
+
+inline fun <T : Any> T?.orElseGet(other: () -> T): T = this ?: other()
+
+inline fun <T : Any> T?.orElseThrow(exception: () -> Exception): T = this ?: throw exception()
