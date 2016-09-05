@@ -70,7 +70,7 @@ bintray {
         vcsUrl = 'https://github.com/rs3vans/monadik.git'
         version {
             name = project.version
-            desc = 'Funktionale - ' + project.version
+            desc = 'MonadiK - ' + project.version
             vcsTag = project.version
         }
     }
