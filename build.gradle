@@ -61,7 +61,7 @@ dokka {
 bintray {
     user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
     key = project.hasProperty('bintrayApiKey') ? project.property('bintrayApiKey') : System.getenv('BINTRAY_API_KEY')
-    configurations = ['archives']
+    publications = ['MonadikPublication']
     pkg {
         repo = 'maven'
         name = 'monadik'
@@ -93,4 +93,17 @@ task dokkaJar(type: Jar, dependsOn: dokkaJavadoc) {
 
 artifacts {
     archives sourcesJar, dokkaJar
+}
+
+publishing {
+    publications {
+        MonadikPublication(MavenPublication) {
+            from components.java
+            groupId 'com.github.rs3vans.monadik'
+            artifactId 'monadik'
+            version project.version
+            artifact sourcesJar
+            artifact dokkaJar
+        }
+    }
 }
