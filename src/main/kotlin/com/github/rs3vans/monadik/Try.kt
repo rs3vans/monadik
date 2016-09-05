@@ -1,22 +1,25 @@
 package com.github.rs3vans.monadik
 
 sealed class Try<out T : Any> {
-    abstract val value: T?
-    abstract val exception: Exception?
+    abstract val value: T
+    abstract val exception: Exception
 
-    operator fun component1() = value
-    operator fun component2() = exception
+    val isSuccess = this is Success
+    val isFailure = this is Failure
 
-    operator fun unaryPlus() = this is Success
-    operator fun not() = this is Failure
-    operator fun unaryMinus() = not()
+    operator fun component1() = if (isSuccess) value else null
+    operator fun component2() = if (isFailure) exception else null
+
+    operator fun not() = isFailure
 
     class Success<out T : Any>(override val value: T) : Try<T>() {
-        override val exception = null
+        override val exception: Exception
+            get() = throw NotAFailureException()
     }
 
     class Failure(override val exception: Exception) : Try<Nothing>() {
-        override val value = null
+        override val value: Nothing
+            get() = throw exception
     }
 
     inline fun <U : Any> flatMap(fn: (T) -> Try<U>): Try<U> = when (this) {
@@ -37,6 +40,8 @@ sealed class Try<out T : Any> {
 
     inline fun ifFailure(right: (Exception) -> Unit): Try<T> = fold({}, right)
 
+    fun throwIfFailure() = ifFailure { throw it }
+
     companion object {
 
         inline operator fun <T : Any> invoke(t: () -> T): Try<T> = try {
@@ -54,7 +59,4 @@ inline fun <T : Any> Try<T>.orElseGet(t: () -> T): T = when (this) {
 
 fun <T : Any> Try<T>.orElse(t: T): T = orElseGet { t }
 
-inline fun <T : Any> Try<T>.orElseThrow(otherValue: (Exception) -> Exception): T = when (this) {
-    is Try.Success -> value
-    is Try.Failure -> throw otherValue(exception)
-}
+class NotAFailureException : Exception("not a failure")
