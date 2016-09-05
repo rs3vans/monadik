@@ -30,7 +30,7 @@ You can add `monadik` to your project using Gradle by adding the following to yo
 
 ```xml
 <dependency>
-  <groupId>org.rs3vans</groupId>
+  <groupId>com.github.rs3vans.monadik</groupId>
   <artifactId>monadik</artifactId>
   <version>1.0.0-SNAPSHOT</version>
 </dependency>
