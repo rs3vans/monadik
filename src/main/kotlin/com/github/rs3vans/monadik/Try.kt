@@ -22,12 +22,12 @@ sealed class Try<out T : Any> {
             get() = throw exception
     }
 
-    inline fun <U : Any> flatMap(fn: (T) -> Try<U>): Try<U> = when (this) {
-        is Try.Success -> fn(value)
+    inline fun <U : Any> flatMap(transformer: (T) -> Try<U>): Try<U> = when (this) {
+        is Try.Success -> transformer(value)
         is Try.Failure -> this
     }
 
-    inline fun <U : Any> map(fn: (T) -> U): Try<U> = flatMap { t -> Try<U> { fn(t) } }
+    inline fun <U : Any> map(transformer: (T) -> U): Try<U> = flatMap { t -> Try<U> { transformer(t) } }
 
     inline fun fold(left: (T) -> Unit, right: (Exception) -> Unit): Try<T> = apply {
         when (this) {
@@ -42,6 +42,16 @@ sealed class Try<out T : Any> {
 
     fun throwIfFailure() = ifFailure { throw it }
 
+    fun toOption(): Option<T> = when (this) {
+        is Success -> Option.Some(value)
+        is Failure -> Option.None
+    }
+
+    fun toEither(): Either<T, Exception> = when (this) {
+        is Success -> Either.Left(value)
+        is Failure -> Either.Right(exception)
+    }
+
     companion object {
 
         inline operator fun <T : Any> invoke(t: () -> T): Try<T> = try {
@@ -50,6 +60,15 @@ sealed class Try<out T : Any> {
             Failure(e)
         }
     }
+}
+
+inline fun <T : Any> Try<T>.recoverWith(transformer: (Exception) -> Try<T>): Try<T> = when (this) {
+    is Try.Success -> this
+    is Try.Failure -> transformer(exception)
+}
+
+inline fun <T : Any> Try<T>.recover(transformer: (Exception) -> T): Try<T> = recoverWith {
+    Try<T> { transformer(exception) }
 }
 
 inline fun <T : Any> Try<T>.orElseGet(t: () -> T): T = when (this) {
