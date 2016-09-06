@@ -126,6 +126,16 @@ class OptionSpec : Spek({
                     throws(isA<IllegalArgumentException>())
             )
         }
+
+        it("should NOT return null") {
+            val x = Option(1)
+            assertThat(x.orNull(), present(equalTo(1)))
+        }
+
+        it("should return null") {
+            val x = Option(null)
+            assertThat(x.orNull(), absent())
+        }
     }
 
     describe("to try operations") {

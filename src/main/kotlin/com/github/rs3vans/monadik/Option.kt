@@ -74,6 +74,11 @@ inline fun <T : Any> Option<T>.orElseGet(other: () -> T): T = when (this) {
 
 fun <T : Any> Option<T>.orElse(other: T): T = orElseGet { other }
 
+fun <T : Any> Option<T>.orNull(): T? = when (this) {
+    is Option.Some -> value
+    is Option.None -> null
+}
+
 inline fun <T : Any> Option<T>.orElseThrow(exception: () -> Exception): T = orElseGet { throw exception() }
 
 fun <T : Any> Option<T>.toList(): List<T> = map { listOf(it) }.orElseGet { emptyList() }
