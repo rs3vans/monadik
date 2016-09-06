@@ -15,11 +15,19 @@ sealed class Try<out T : Any> {
     class Success<out T : Any>(override val value: T) : Try<T>() {
         override val exception: Exception
             get() = throw NotAFailureException()
+
+        override fun toString() = "Success($value)"
+        override fun hashCode() = value.hashCode()
+        override fun equals(other: Any?) = other is Success<*> && value.equals(other.value)
     }
 
     class Failure(override val exception: Exception) : Try<Nothing>() {
         override val value: Nothing
             get() = throw exception
+
+        override fun toString() = "Failure($exception)"
+        override fun hashCode() = exception.hashCode()
+        override fun equals(other: Any?) = other is Failure && exception.equals(other.exception)
     }
 
     inline fun <U : Any> flatMap(transformer: (T) -> Try<U>): Try<U> = when (this) {

@@ -9,10 +9,18 @@ sealed class Either<out T : Any, out U : Any> {
 
     class Left<out T : Any>(override val left: T) : Either<T, Nothing>() {
         override val right = null
+
+        override fun toString() = "Left($left)"
+        override fun hashCode() = left.hashCode()
+        override fun equals(other: Any?) = other is Left<*> && left.equals(other.left)
     }
 
     class Right<out U : Any>(override val right: U) : Either<Nothing, U>() {
         override val left = null
+
+        override fun toString() = "Right($right)"
+        override fun hashCode() = right.hashCode()
+        override fun equals(other: Any?) = other is Right<*> && right.equals(other.right)
     }
 
     inline fun fold(leftFn: (T) -> Unit, rightFn: (U) -> Unit): Either<T, U> = apply {

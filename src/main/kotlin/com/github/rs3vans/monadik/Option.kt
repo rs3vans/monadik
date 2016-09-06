@@ -9,11 +9,17 @@ sealed class Option<out T : Any> {
     
     operator fun not() = absent
 
-    class Some<out T : Any>(override val value: T) : Option<T>()
+    class Some<out T : Any>(override val value: T) : Option<T>() {
+        override fun toString() = "Some($value)"
+        override fun hashCode() = value.hashCode()
+        override fun equals(other: Any?) = other is Option<*> && value.equals(other.value)
+    }
     
     object None : Option<Nothing>() {
         override val value: Nothing
             get() = throw NullPointerException()
+
+        override fun toString() = "None"
     }
 
     inline fun <U : Any> flatMap(transformer: (T) -> Option<U>): Option<U> = when (this) {
