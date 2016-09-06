@@ -1,4 +1,4 @@
-# monadiK [![Travis](https://img.shields.io/travis/rs3vans/monadik.svg)](https://travis-ci.org/rs3vans/monadik) [![Bintray](https://img.shields.io/bintray/v/rs3vans/maven/monadik.svg)](https://bintray.com/rs3vans/maven/monadik) #
+# MonadiK [![Travis](https://img.shields.io/travis/rs3vans/monadik.svg)](https://travis-ci.org/rs3vans/monadik) [![Bintray](https://img.shields.io/bintray/v/rs3vans/maven/monadik.svg)](https://bintray.com/rs3vans/maven/monadik) #
 A [Kotlin](https://kotlinlang.org/) library which provides some common functional monads.
 
 ## Overview ##
@@ -13,7 +13,8 @@ languages like Scala.
 
 ## Monads ##
 
-TODO
+Please read the [MonadiK Wiki](https://github.com/rs3vans/monadik/wiki) for information on
+the contents and use of this library.
 
 ## Download ##
 `monadik` binaries can be downloaded from [Bintray](https://bintray.com/rs3vans/maven/monadik).
