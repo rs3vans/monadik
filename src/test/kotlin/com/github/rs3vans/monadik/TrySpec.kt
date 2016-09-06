@@ -105,25 +105,25 @@ class TrySpec : Spek({
     describe("or substitutions") {
         it("should NOT substitute") {
             val x = Try<Int> { 1 }
-            val y = x.orElse(2)
+            val y = x.or(2)
             assertThat(y, equalTo(1))
         }
 
         it("should NOT call substitute") {
             val x = Try<Int> { 1 }
-            val y = x.orElseGet { 2 }
+            val y = x.or { 2 }
             assertThat(y, equalTo(1))
         }
 
         it("should substitute") {
             val x = Try<Int> { throw IllegalStateException() }
-            val y = x.orElse(2)
+            val y = x.or(2)
             assertThat(y, equalTo(2))
         }
 
         it("should call substitute") {
             val x = Try<Int> { throw IllegalStateException() }
-            val y = x.orElseGet { 2 }
+            val y = x.or { 2 }
             assertThat(y, equalTo(2))
         }
     }
