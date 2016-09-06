@@ -23,7 +23,7 @@ the contents and use of this library.
 You can add `monadik` to your project using Gradle by adding the following to your `build.gradle` dependencies:
 
 ```groovy
-compile 'com.github.rs3vans.monadik:monadik:1.0.1'
+compile 'com.github.rs3vans.monadik:monadik:1.1.0'
 ```
     
 ### Maven ###
@@ -33,7 +33,7 @@ You can add `monadik` to your project using Gradle by adding the following to yo
 <dependency>
   <groupId>com.github.rs3vans.monadik</groupId>
   <artifactId>monadik</artifactId>
-  <version>1.0.1</version>
+  <version>1.1.0</version>
 </dependency>
 ```
 
