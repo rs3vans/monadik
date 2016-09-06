@@ -128,6 +128,22 @@ class OptionSpec : Spek({
         }
     }
 
+    describe("to try operations") {
+        it("should produce a Success") {
+            val x = Option(1)
+            val t = x.toTry()
+            assertThat(t, isA<Try.Success<*>>())
+            assertThat(t.value, equalTo(1))
+        }
+
+        it("should produce a Failure") {
+            val x = Option(null)
+            val t = x.toTry()
+            assertThat(t, isA<Try.Failure>())
+            assertThat(t.exception, isA<NullPointerException>())
+        }
+    }
+
     describe("to either operations") {
         it("toLeft should produce a Left") {
             val x = Option(1)
