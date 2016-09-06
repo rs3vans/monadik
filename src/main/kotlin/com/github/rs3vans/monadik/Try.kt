@@ -79,11 +79,11 @@ inline fun <T : Any> Try<T>.recover(transformer: (Exception) -> T): Try<T> = rec
     Try<T> { transformer(exception) }
 }
 
-inline fun <T : Any> Try<T>.or(t: () -> T): T = when (this) {
+inline fun <T : Any> Try<T>.orElse(t: () -> T): T = when (this) {
     is Try.Success -> value
     is Try.Failure -> t()
 }
 
-fun <T : Any> Try<T>.or(t: T): T = or { t }
+fun <T : Any> Try<T>.orElse(t: T): T = orElse { t }
 
 class NotAFailureException : Exception("not a failure")
