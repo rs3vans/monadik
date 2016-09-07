@@ -46,16 +46,11 @@ junitPlatform {
 }
 
 dokka {
-    moduleName = 'monadik'
-    outputFormat = 'javadoc'
-    outputDirectory = "$buildDir/javadoc"
-    processConfigurations = ['compile']
     linkMapping {
         dir = "src/main/kotlin"
-        url = "https://github.com/cy6erGn0m/vertx3-lang-kotlin/blob/master/src/main/kotlin"
+        url = "https://github.com/rs3vans/monadik/tree/master/src/main/kotlin"
         suffix = "#L"
     }
-    sourceDirs = files('src/main/kotlin')
 }
 
 bintray {
@@ -76,6 +71,11 @@ bintray {
     }
 }
 
+task dokkaDoc(type: org.jetbrains.dokka.gradle.DokkaTask) {
+    outputFormat = 'html'
+    outputDirectory = "docs"
+}
+
 task dokkaJavadoc(type: org.jetbrains.dokka.gradle.DokkaTask) {
     outputFormat = 'javadoc'
     outputDirectory = "$buildDir/javadoc"
@@ -90,6 +90,8 @@ task dokkaJar(type: Jar, dependsOn: dokkaJavadoc) {
     from dokkaJavadoc.outputDirectory
     classifier = 'javadoc'
 }
+
+assemble.dependsOn dokkaDoc
 
 artifacts {
     archives sourcesJar, dokkaJar

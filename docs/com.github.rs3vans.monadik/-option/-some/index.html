@@ -1,0 +1,86 @@
+<HTML>
+<HEAD>
+<title>Option.Some - </title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">com.github.rs3vans.monadik</a>&nbsp;/&nbsp;<a href="../index.html">Option</a>&nbsp;/&nbsp;<a href=".">Some</a><br/>
+<br/>
+<h1>Some</h1>
+<code><span class="keyword">class </span><span class="identifier">Some</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../index.html"><span class="identifier">Option</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-init-.html">&lt;init&gt;</a></td>
+<td>
+<code><span class="identifier">Some</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Option.Some$<init>(com.github.rs3vans.monadik.Option.Some.T)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="value.html">value</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">value</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="../absent.html">absent</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">absent</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../present.html">present</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">present</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="../if-absent.html">ifAbsent</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">ifAbsent</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Option$ifAbsent(kotlin.Function0((kotlin.Unit)))/right">right</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Unit</span><span class="symbol">)</span><span class="symbol">: </span><a href="../index.html"><span class="identifier">Option</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../not.html">not</a></td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">not</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../to-left.html">toLeft</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">U</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <span class="identifier">toLeft</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Option$toLeft(com.github.rs3vans.monadik.Option.toLeft.U)/right">right</span><span class="symbol">:</span>&nbsp;<span class="identifier">U</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../-either/index.html"><span class="identifier">Either</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="identifier">U</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../to-right.html">toRight</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">U</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <span class="identifier">toRight</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Option$toRight(com.github.rs3vans.monadik.Option.toRight.U)/left">left</span><span class="symbol">:</span>&nbsp;<span class="identifier">U</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../-either/index.html"><span class="identifier">Either</span></a><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">,</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../to-try.html">toTry</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toTry</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Option$toTry(kotlin.Function0((java.lang.Exception)))/exception">exception</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Exception.html"><span class="identifier">Exception</span></a>&nbsp;<span class="symbol">=</span>&nbsp;{ NullPointerException() }<span class="symbol">)</span><span class="symbol">: </span><a href="../../-try/index.html"><span class="identifier">Try</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
