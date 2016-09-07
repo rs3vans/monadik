@@ -11,10 +11,13 @@ when we apply functional concepts to our code, we end up with code that is easie
 reason about, and easier to test. This library draws from existing concepts in other
 languages like Scala.
 
-## Monads ##
+## Documentation ##
 
 Please read the [MonadiK Wiki](https://github.com/rs3vans/monadik/wiki) for information on
 the contents and use of this library.
+
+Also, see the [API documentation](https://rs3vans.github.io/monadik/com.github.rs3vans.monadik/) for a detailed listing
+of all types and their functions/properties/etc.
 
 ## Download ##
 `monadik` binaries can be downloaded from [Bintray](https://bintray.com/rs3vans/maven/monadik).
