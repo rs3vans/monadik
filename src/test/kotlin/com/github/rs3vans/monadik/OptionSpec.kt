@@ -196,28 +196,28 @@ class OptionSpec : Spek({
             val x = Option(1)
             val l = x.toLeft(2)
             assertThat(l, isA<Either.Left<Int>>())
-            assertThat(l.left, present(equalTo(1)))
+            assertThat(l.left.value, present(equalTo(1)))
         }
 
         it("toLeft should produce a Right") {
             val x: Option<Int> = Option(null)
             val l = x.toLeft(2)
             assertThat(l, isA<Either.Right<Int>>())
-            assertThat(l.right, present(equalTo(2)))
+            assertThat(l.right.value, present(equalTo(2)))
         }
 
         it("toRight should produce a Right") {
             val x = Option(1)
             val l = x.toRight(2)
             assertThat(l, isA<Either.Right<Int>>())
-            assertThat(l.right, present(equalTo(1)))
+            assertThat(l.right.value, present(equalTo(1)))
         }
 
         it("toRight should produce a Left") {
             val x: Option<Int> = Option(null)
             val l = x.toRight(2)
             assertThat(l, isA<Either.Left<Int>>())
-            assertThat(l.left, present(equalTo(2)))
+            assertThat(l.left.value, present(equalTo(2)))
         }
     }
 
