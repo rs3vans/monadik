@@ -17,6 +17,16 @@ class OptionSpec : Spek({
             val x = Option(null)
             assertThat(!x, equalTo(true))
         }
+
+        it("should return true for contains() as Some") {
+            val x = Option(1)
+            assertThat(1 in x, equalTo(true))
+        }
+
+        it("should return false for contains() as None") {
+            val x = Option(null)
+            assertThat(1 in x, equalTo(false))
+        }
     }
 
     describe("flatMap") {

@@ -8,6 +8,7 @@ sealed class Option<out T : Any> {
     val absent: Boolean = this is None
 
     operator fun not() = absent
+    operator fun contains(other: Any?): Boolean = present && value == other
 
     class Some<out T : Any>(override val value: T) : Option<T>() {
         override fun toString() = "Some($value)"

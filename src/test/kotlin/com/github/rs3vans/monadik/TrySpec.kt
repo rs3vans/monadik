@@ -115,6 +115,16 @@ class TrySpec : Spek({
             val y = x.flatten()
             assertThat(y, isA<Try.Failure>())
         }
+
+        it("should return true for contains() as Success") {
+            val x = Try<Int> { 1 }
+            assertThat(1 in x, equalTo(true))
+        }
+
+        it("should return false for contains() as Failure") {
+            val x = Try<Int> { throw IllegalStateException() }
+            assertThat(1 in x, equalTo(false))
+        }
     }
 
     describe("or substitutions") {

@@ -12,6 +12,8 @@ sealed class Try<out T : Any> {
 
     operator fun not() = isFailure
 
+    operator fun contains(other: Any?): Boolean = isSuccess && value == other
+
     class Success<out T : Any>(override val value: T) : Try<T>() {
         override val exception: Exception
             get() = throw NotFailureException()
