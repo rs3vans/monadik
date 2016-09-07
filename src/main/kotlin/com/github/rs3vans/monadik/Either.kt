@@ -1,14 +1,15 @@
 package com.github.rs3vans.monadik
 
 sealed class Either<out T : Any, out U : Any> {
-    abstract val left: T?
-    abstract val right: U?
+    abstract val left: T
+    abstract val right: U
 
-    operator fun component1() = left
-    operator fun component2() = right
+    operator fun component1() = if (this is Left<T>) left else null
+    operator fun component2() = if (this is Right<U>) right else null
 
     class Left<out T : Any>(override val left: T) : Either<T, Nothing>() {
-        override val right = null
+        override val right: Nothing
+            get() = throw NotLeftException()
 
         override fun toString() = "Left($left)"
         override fun hashCode() = left.hashCode()
@@ -16,7 +17,8 @@ sealed class Either<out T : Any, out U : Any> {
     }
 
     class Right<out U : Any>(override val right: U) : Either<Nothing, U>() {
-        override val left = null
+        override val left: Nothing
+            get() = throw NotRightException()
 
         override fun toString() = "Right($right)"
         override fun hashCode() = right.hashCode()
@@ -49,3 +51,7 @@ fun <T : Any, U : Any> Either<T, Either<T, U>>.flattenRight(): Either<T, U> = wh
     is Either.Left -> this
     is Either.Right -> right
 }
+
+class NotLeftException : Exception("not an instance of Either.Left")
+
+class NotRightException : Exception("not an instance of Either.Right")
