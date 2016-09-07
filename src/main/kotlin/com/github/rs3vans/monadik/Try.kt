@@ -14,7 +14,7 @@ sealed class Try<out T : Any> {
 
     class Success<out T : Any>(override val value: T) : Try<T>() {
         override val exception: Exception
-            get() = throw NotAFailureException()
+            get() = throw NotFailureException()
 
         override fun toString() = "Success($value)"
         override fun hashCode() = value.hashCode()
@@ -86,4 +86,4 @@ inline fun <T : Any> Try<T>.orElseGet(t: () -> T): T = when (this) {
 
 fun <T : Any> Try<T>.orElse(t: T): T = orElseGet { t }
 
-class NotAFailureException : Exception("not a failure")
+class NotFailureException : Exception("not an instance of Try.Failure")
