@@ -1,0 +1,186 @@
+<HTML>
+<HEAD>
+<title>Try - </title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">com.github.rs3vans.monadik</a>&nbsp;/&nbsp;<a href=".">Try</a><br/>
+<br/>
+<h1>Try</h1>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">Try</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span></code>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-failure/index.html">Failure</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">Failure</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Try</span><span class="symbol">&lt;</span><span class="identifier">Nothing</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-success/index.html">Success</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">Success</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Try</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="exception.html">exception</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">exception</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Exception.html"><span class="identifier">Exception</span></a></code></td>
+</tr>
+<tr>
+<td>
+<a href="is-failure.html">isFailure</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">isFailure</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="is-success.html">isSuccess</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">isSuccess</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="value.html">value</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">value</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="component1.html">component1</a></td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">component1</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="component2.html">component2</a></td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">component2</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Exception.html"><span class="identifier">Exception</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="flat-map.html">flatMap</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">U</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <span class="identifier">flatMap</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Try$flatMap(kotlin.Function1((com.github.rs3vans.monadik.Try.T, com.github.rs3vans.monadik.Try((com.github.rs3vans.monadik.Try.flatMap.U)))))/transformer">transformer</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Try</span><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Try</span><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="fold.html">fold</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">fold</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Try$fold(kotlin.Function1((com.github.rs3vans.monadik.Try.T, kotlin.Unit)), kotlin.Function1((java.lang.Exception, kotlin.Unit)))/left">left</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Unit</span><span class="symbol">, </span><span class="identifier" id="com.github.rs3vans.monadik.Try$fold(kotlin.Function1((com.github.rs3vans.monadik.Try.T, kotlin.Unit)), kotlin.Function1((java.lang.Exception, kotlin.Unit)))/right">right</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Exception.html"><span class="identifier">Exception</span></a><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Unit</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Try</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="if-failure.html">ifFailure</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">ifFailure</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Try$ifFailure(kotlin.Function1((java.lang.Exception, kotlin.Unit)))/right">right</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Exception.html"><span class="identifier">Exception</span></a><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Unit</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Try</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="if-success.html">ifSuccess</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">ifSuccess</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Try$ifSuccess(kotlin.Function1((com.github.rs3vans.monadik.Try.T, kotlin.Unit)))/left">left</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Unit</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Try</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="map.html">map</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">U</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <span class="identifier">map</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Try$map(kotlin.Function1((com.github.rs3vans.monadik.Try.T, com.github.rs3vans.monadik.Try.map.U)))/transformer">transformer</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">U</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Try</span><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="not.html">not</a></td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">not</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="throw-if-failure.html">throwIfFailure</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">throwIfFailure</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Try</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="to-either.html">toEither</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toEither</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-either/index.html"><span class="identifier">Either</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Exception.html"><span class="identifier">Exception</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="to-option.html">toOption</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toOption</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-option/index.html"><span class="identifier">Option</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="invoke.html">invoke</a></td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <span class="identifier">invoke</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Try.Companion$invoke(kotlin.Function0((com.github.rs3vans.monadik.Try.Companion.invoke.T)))/t">t</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Try</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="../or-else.html">orElse</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <span class="identifier">Try</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">orElse</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik$orElse(com.github.rs3vans.monadik.Try((com.github.rs3vans.monadik.orElse.T)), com.github.rs3vans.monadik.orElse.T)/t">t</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../or-else-get.html">orElseGet</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <span class="identifier">Try</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">orElseGet</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik$orElseGet(com.github.rs3vans.monadik.Try((com.github.rs3vans.monadik.orElseGet.T)), kotlin.Function0((com.github.rs3vans.monadik.orElseGet.T)))/t">t</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../recover.html">recover</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <span class="identifier">Try</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">recover</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik$recover(com.github.rs3vans.monadik.Try((com.github.rs3vans.monadik.recover.T)), kotlin.Function1((java.lang.Exception, com.github.rs3vans.monadik.recover.T)))/transformer">transformer</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Exception.html"><span class="identifier">Exception</span></a><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Try</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../recover-with.html">recoverWith</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <span class="identifier">Try</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">recoverWith</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik$recoverWith(com.github.rs3vans.monadik.Try((com.github.rs3vans.monadik.recoverWith.T)), kotlin.Function1((java.lang.Exception, com.github.rs3vans.monadik.Try((com.github.rs3vans.monadik.recoverWith.T)))))/transformer">transformer</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Exception.html"><span class="identifier">Exception</span></a><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Try</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Try</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-failure/index.html">Failure</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">Failure</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Try</span><span class="symbol">&lt;</span><span class="identifier">Nothing</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-success/index.html">Success</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">Success</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Try</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

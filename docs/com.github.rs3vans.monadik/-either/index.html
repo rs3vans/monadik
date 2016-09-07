@@ -1,0 +1,121 @@
+<HTML>
+<HEAD>
+<title>Either - </title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">com.github.rs3vans.monadik</a>&nbsp;/&nbsp;<a href=".">Either</a><br/>
+<br/>
+<h1>Either</h1>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">Either</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">, </span><span class="keyword">out</span>&nbsp;<span class="identifier">U</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span></code>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-left/index.html">Left</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">Left</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Either</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="identifier">Nothing</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-right/index.html">Right</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">Right</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">U</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Either</span><span class="symbol">&lt;</span><span class="identifier">Nothing</span><span class="symbol">,</span>&nbsp;<span class="identifier">U</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="left.html">left</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">left</span><span class="symbol">: </span><span class="identifier">T</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="right.html">right</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">right</span><span class="symbol">: </span><span class="identifier">U</span><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="component1.html">component1</a></td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">component1</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="component2.html">component2</a></td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">component2</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">U</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="fold.html">fold</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">fold</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Either$fold(kotlin.Function1((com.github.rs3vans.monadik.Either.T, kotlin.Unit)), kotlin.Function1((com.github.rs3vans.monadik.Either.U, kotlin.Unit)))/leftFn">leftFn</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Unit</span><span class="symbol">, </span><span class="identifier" id="com.github.rs3vans.monadik.Either$fold(kotlin.Function1((com.github.rs3vans.monadik.Either.T, kotlin.Unit)), kotlin.Function1((com.github.rs3vans.monadik.Either.U, kotlin.Unit)))/rightFn">rightFn</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">U</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Unit</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Either</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="identifier">U</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="if-left.html">ifLeft</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">ifLeft</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Either$ifLeft(kotlin.Function1((com.github.rs3vans.monadik.Either.T, kotlin.Unit)))/leftFn">leftFn</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Unit</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Either</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="identifier">U</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="if-right.html">ifRight</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">ifRight</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Either$ifRight(kotlin.Function1((com.github.rs3vans.monadik.Either.U, kotlin.Unit)))/rightFn">rightFn</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">U</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Unit</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Either</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="identifier">U</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="swap.html">swap</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">swap</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Either</span><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">,</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="../flatten-left.html">flattenLeft</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">, </span><span class="identifier">U</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <span class="identifier">Either</span><span class="symbol">&lt;</span><span class="identifier">Either</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="identifier">U</span><span class="symbol">&gt;</span><span class="symbol">,</span>&nbsp;<span class="identifier">U</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">flattenLeft</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Either</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="identifier">U</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../flatten-right.html">flattenRight</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">, </span><span class="identifier">U</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <span class="identifier">Either</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="identifier">Either</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="identifier">U</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">flattenRight</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Either</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="identifier">U</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-left/index.html">Left</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">Left</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Either</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="identifier">Nothing</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-right/index.html">Right</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">Right</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">U</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Either</span><span class="symbol">&lt;</span><span class="identifier">Nothing</span><span class="symbol">,</span>&nbsp;<span class="identifier">U</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

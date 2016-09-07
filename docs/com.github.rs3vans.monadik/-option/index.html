@@ -1,0 +1,186 @@
+<HTML>
+<HEAD>
+<title>Option - </title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">com.github.rs3vans.monadik</a>&nbsp;/&nbsp;<a href=".">Option</a><br/>
+<br/>
+<h1>Option</h1>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">Option</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span></code>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-none/index.html">None</a></td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">None</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Option</span><span class="symbol">&lt;</span><span class="identifier">Nothing</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-some/index.html">Some</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">Some</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Option</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="absent.html">absent</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">absent</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="present.html">present</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">present</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="value.html">value</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">value</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="filter.html">filter</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">filter</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Option$filter(kotlin.Function1((com.github.rs3vans.monadik.Option.T, kotlin.Boolean)))/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Option</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="flat-map.html">flatMap</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">U</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <span class="identifier">flatMap</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Option$flatMap(kotlin.Function1((com.github.rs3vans.monadik.Option.T, com.github.rs3vans.monadik.Option((com.github.rs3vans.monadik.Option.flatMap.U)))))/transformer">transformer</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Option</span><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Option</span><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="fold.html">fold</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">fold</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Option$fold(kotlin.Function1((com.github.rs3vans.monadik.Option.T, kotlin.Unit)), kotlin.Function0((kotlin.Unit)))/left">left</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Unit</span><span class="symbol">, </span><span class="identifier" id="com.github.rs3vans.monadik.Option$fold(kotlin.Function1((com.github.rs3vans.monadik.Option.T, kotlin.Unit)), kotlin.Function0((kotlin.Unit)))/right">right</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Unit</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Option</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="if-absent.html">ifAbsent</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">ifAbsent</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Option$ifAbsent(kotlin.Function0((kotlin.Unit)))/right">right</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Unit</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Option</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="if-present.html">ifPresent</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">ifPresent</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Option$ifPresent(kotlin.Function1((com.github.rs3vans.monadik.Option.T, kotlin.Unit)))/left">left</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Unit</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Option</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="map.html">map</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">U</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <span class="identifier">map</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Option$map(kotlin.Function1((com.github.rs3vans.monadik.Option.T, com.github.rs3vans.monadik.Option.map.U)))/transformer">transformer</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">U</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Option</span><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="not.html">not</a></td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">not</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="to-left.html">toLeft</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">U</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <span class="identifier">toLeft</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Option$toLeft(com.github.rs3vans.monadik.Option.toLeft.U)/right">right</span><span class="symbol">:</span>&nbsp;<span class="identifier">U</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-either/index.html"><span class="identifier">Either</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="identifier">U</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="to-right.html">toRight</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">U</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <span class="identifier">toRight</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Option$toRight(com.github.rs3vans.monadik.Option.toRight.U)/left">left</span><span class="symbol">:</span>&nbsp;<span class="identifier">U</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-either/index.html"><span class="identifier">Either</span></a><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">,</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="to-try.html">toTry</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toTry</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Option$toTry(kotlin.Function0((java.lang.Exception)))/exception">exception</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Exception.html"><span class="identifier">Exception</span></a>&nbsp;<span class="symbol">=</span>&nbsp;{ NullPointerException() }<span class="symbol">)</span><span class="symbol">: </span><a href="../-try/index.html"><span class="identifier">Try</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="invoke.html">invoke</a></td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <span class="identifier">invoke</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Option.Companion$invoke(com.github.rs3vans.monadik.Option.Companion.invoke.T)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Option</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="../or-else.html">orElse</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <span class="identifier">Option</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">orElse</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik$orElse(com.github.rs3vans.monadik.Option((com.github.rs3vans.monadik.orElse.T)), com.github.rs3vans.monadik.orElse.T)/other">other</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../or-else-get.html">orElseGet</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <span class="identifier">Option</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">orElseGet</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik$orElseGet(com.github.rs3vans.monadik.Option((com.github.rs3vans.monadik.orElseGet.T)), kotlin.Function0((com.github.rs3vans.monadik.orElseGet.T)))/other">other</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../or-else-throw.html">orElseThrow</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <span class="identifier">Option</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">orElseThrow</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik$orElseThrow(com.github.rs3vans.monadik.Option((com.github.rs3vans.monadik.orElseThrow.T)), kotlin.Function0((java.lang.Exception)))/exception">exception</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Exception.html"><span class="identifier">Exception</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../to-list.html">toList</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <span class="identifier">Option</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">toList</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">List</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../to-sequence.html">toSequence</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <span class="identifier">Option</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">toSequence</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Sequence</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../to-set.html">toSet</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <span class="identifier">Option</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">toSet</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Set</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-none/index.html">None</a></td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">None</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Option</span><span class="symbol">&lt;</span><span class="identifier">Nothing</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-some/index.html">Some</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">Some</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Option</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
