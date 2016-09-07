@@ -9,5 +9,19 @@
 <h1>orElseThrow</h1>
 <a name="com.github.rs3vans.monadik$orElseThrow(com.github.rs3vans.monadik.Option((com.github.rs3vans.monadik.orElseThrow.T)), kotlin.Function0((java.lang.Exception)))"></a>
 <code><span class="keyword">inline</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <a href="-option/index.html"><span class="identifier">Option</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">orElseThrow</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik$orElseThrow(com.github.rs3vans.monadik.Option((com.github.rs3vans.monadik.orElseThrow.T)), kotlin.Function0((java.lang.Exception)))/exception">exception</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Exception.html"><span class="identifier">Exception</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code>
+<p>Terminates this <a href="-option/index.html">Option</a> by returning its <a href="-option/value.html">value</a> when it is an instance of <a href="-option/-some/index.html">Option.Some</a>,
+otherwise throwing the exception produced by invoking the given <a href="or-else-throw.html#com.github.rs3vans.monadik$orElseThrow(com.github.rs3vans.monadik.Option((com.github.rs3vans.monadik.orElseThrow.T)), kotlin.Function0((java.lang.Exception)))/exception">supplier</a>.</p>
+<h3>Parameters</h3>
+
+<p><a name="T"></a>
+<code>T</code> - the type wrapped by this <a href="-option/index.html">Option</a>, which is returned
+<p><a name="exception"></a>
+<code>exception</code> - the supplier invoked if this is <a href="-option/-none/index.html">Option.None</a>
+<h3>Exceptions</h3>
+
+<p><a name="Exception"></a>
+<code>Exception</code> - given by the <a href="or-else-throw.html#com.github.rs3vans.monadik$orElseThrow(com.github.rs3vans.monadik.Option((com.github.rs3vans.monadik.orElseThrow.T)), kotlin.Function0((java.lang.Exception)))/exception">exception</a> supplier if this is <a href="-option/-none/index.html">Option.None</a>
+<p><strong>Returns</strong><br/>
+a value of type <a href="#">T</a></p>
 </BODY>
 </HTML>

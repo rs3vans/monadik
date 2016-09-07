@@ -9,5 +9,13 @@
 <h1>toRight</h1>
 <a name="com.github.rs3vans.monadik.Option$toRight(com.github.rs3vans.monadik.Option.toRight.U)"></a>
 <code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">U</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <span class="identifier">toRight</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Option$toRight(com.github.rs3vans.monadik.Option.toRight.U)/left">left</span><span class="symbol">:</span>&nbsp;<span class="identifier">U</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-either/index.html"><span class="identifier">Either</span></a><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">,</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Converts this <a href="index.html">Option</a> into a <a href="../-either/-right/index.html">right</a> (of type <a href="#">T</a>) if <code>this</code> is an instance of <a href="-some/index.html">Some</a>,
+otherwise returns a <a href="../-either/-left/index.html">left</a> using the given <a href="to-right.html#com.github.rs3vans.monadik.Option$toRight(com.github.rs3vans.monadik.Option.toRight.U)/left">value</a> (of type <a href="#">U</a>).</p>
+<h3>Parameters</h3>
+
+<p><a name="left"></a>
+<code>left</code> - left value used if <code>this</code> is <a href="-none/index.html">None</a>
+<p><strong>Return</strong><br/>
+either <a href="../-either/-right/index.html">Either.Right</a> or <a href="../-either/-left/index.html">Either.Left</a></p>
 </BODY>
 </HTML>

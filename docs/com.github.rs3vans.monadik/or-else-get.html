@@ -7,9 +7,21 @@
 <a href="index.html">com.github.rs3vans.monadik</a>&nbsp;/&nbsp;<a href=".">orElseGet</a><br/>
 <br/>
 <h1>orElseGet</h1>
-<a name="com.github.rs3vans.monadik$orElseGet(com.github.rs3vans.monadik.Option((com.github.rs3vans.monadik.orElseGet.T)), kotlin.Function0((com.github.rs3vans.monadik.orElseGet.T)))"></a>
-<code><span class="keyword">inline</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <a href="-option/index.html"><span class="identifier">Option</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">orElseGet</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik$orElseGet(com.github.rs3vans.monadik.Option((com.github.rs3vans.monadik.orElseGet.T)), kotlin.Function0((com.github.rs3vans.monadik.orElseGet.T)))/other">other</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code><br/>
-<a name="com.github.rs3vans.monadik$orElseGet(com.github.rs3vans.monadik.Try((com.github.rs3vans.monadik.orElseGet.T)), kotlin.Function0((com.github.rs3vans.monadik.orElseGet.T)))"></a>
+
+<p><a name="com.github.rs3vans.monadik$orElseGet(com.github.rs3vans.monadik.Option((com.github.rs3vans.monadik.orElseGet.T)), kotlin.Function0((com.github.rs3vans.monadik.orElseGet.T)))"></a>
+<code><span class="keyword">inline</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <a href="-option/index.html"><span class="identifier">Option</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">orElseGet</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik$orElseGet(com.github.rs3vans.monadik.Option((com.github.rs3vans.monadik.orElseGet.T)), kotlin.Function0((com.github.rs3vans.monadik.orElseGet.T)))/other">other</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code>
+<p>Terminates this <a href="-option/index.html">Option</a> by returning its <a href="-option/value.html">value</a> when it is an instance of <a href="-option/-some/index.html">Option.Some</a>,
+otherwise returning the value produced by invoking the given <a href="or-else-get.html#com.github.rs3vans.monadik$orElseGet(com.github.rs3vans.monadik.Option((com.github.rs3vans.monadik.orElseGet.T)), kotlin.Function0((com.github.rs3vans.monadik.orElseGet.T)))/other">supplier</a>.</p>
+<h3>Parameters</h3>
+
+<p><a name="T"></a>
+<code>T</code> - the type wrapped by this <a href="-option/index.html">Option</a>, which is returned
+<p><a name="other"></a>
+<code>other</code> - the supplier invoked if this is <a href="-option/-none/index.html">Option.None</a>
+<p><strong>Returns</strong><br/>
+a value of type <a href="#">T</a></p>
+
+<p><a name="com.github.rs3vans.monadik$orElseGet(com.github.rs3vans.monadik.Try((com.github.rs3vans.monadik.orElseGet.T)), kotlin.Function0((com.github.rs3vans.monadik.orElseGet.T)))"></a>
 <code><span class="keyword">inline</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <a href="-try/index.html"><span class="identifier">Try</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">orElseGet</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik$orElseGet(com.github.rs3vans.monadik.Try((com.github.rs3vans.monadik.orElseGet.T)), kotlin.Function0((com.github.rs3vans.monadik.orElseGet.T)))/t">t</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code>
 </BODY>
 </HTML>

@@ -71,6 +71,12 @@
 </tr>
 <tr>
 <td>
+<a href="contains.html">contains</a></td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">contains</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Try$contains(kotlin.Any)/other">other</span><span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
 <a href="flat-map.html">flatMap</a></td>
 <td>
 <code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">U</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <span class="identifier">flatMap</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Try$flatMap(kotlin.Function1((com.github.rs3vans.monadik.Try.T, com.github.rs3vans.monadik.Try((com.github.rs3vans.monadik.Try.flatMap.U)))))/transformer">transformer</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Try</span><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Try</span><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">&gt;</span></code></td>
@@ -139,6 +145,12 @@
 <h3>Extension Functions</h3>
 <table>
 <tbody>
+<tr>
+<td>
+<a href="../flatten.html">flatten</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <span class="identifier">Try</span><span class="symbol">&lt;</span><span class="identifier">Try</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">flatten</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Try</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
 <tr>
 <td>
 <a href="../or-else.html">orElse</a></td>

@@ -9,5 +9,13 @@
 <h1>toTry</h1>
 <a name="com.github.rs3vans.monadik.Option$toTry(kotlin.Function0((java.lang.Exception)))"></a>
 <code><span class="keyword">fun </span><span class="identifier">toTry</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Option$toTry(kotlin.Function0((java.lang.Exception)))/exception">exception</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Exception.html"><span class="identifier">Exception</span></a>&nbsp;<span class="symbol">=</span>&nbsp;{ NullPointerException() }<span class="symbol">)</span><span class="symbol">: </span><a href="../-try/index.html"><span class="identifier">Try</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Converts this <a href="index.html">Option</a> into a <a href="../-try/-success/index.html">successful</a> (of type <a href="#">T</a>) if <code>this</code> is an instance of <a href="-some/index.html">Some</a>,
+otherwise returns a <a href="../-try/-failure/index.html">failure</a> with the exception obtained by invoking <a href="to-try.html#com.github.rs3vans.monadik.Option$toTry(kotlin.Function0((java.lang.Exception)))/exception">exception</a>.</p>
+<h3>Parameters</h3>
+
+<p><a name="exception"></a>
+<code>exception</code> - exception supplier invoked if <code>this</code> is <a href="-none/index.html">None</a>
+<p><strong>Return</strong><br/>
+either <a href="../-try/-success/index.html">Try.Success</a> or <a href="../-try/-failure/index.html">Try.Failure</a></p>
 </BODY>
 </HTML>

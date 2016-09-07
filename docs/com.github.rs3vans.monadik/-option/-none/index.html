@@ -8,6 +8,8 @@
 <br/>
 <h1>None</h1>
 <code><span class="keyword">object </span><span class="identifier">None</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../index.html"><span class="identifier">Option</span></a><span class="symbol">&lt;</span><span class="identifier">Nothing</span><span class="symbol">&gt;</span></code>
+<p>The concrete subtype of <a href="../index.html">Option</a> which represents the absence of a value.</p>
+<p>Note: None is an object singleton and therefore cannot be instantiated.</p>
 <h3>Properties</h3>
 <table>
 <tbody>
@@ -15,7 +17,9 @@
 <td>
 <a href="value.html">value</a></td>
 <td>
-<code><span class="keyword">val </span><span class="identifier">value</span><span class="symbol">: </span><span class="identifier">Nothing</span></code></td>
+<code><span class="keyword">val </span><span class="identifier">value</span><span class="symbol">: </span><span class="identifier">Nothing</span></code>
+<p>The wrapped value when <code>this</code> is <a href="../-some/index.html">Some</a>, otherwise throws a <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/NullPointerException.html">NullPointerException</a>.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -26,13 +30,28 @@
 <td>
 <a href="../absent.html">absent</a></td>
 <td>
-<code><span class="keyword">val </span><span class="identifier">absent</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+<code><span class="keyword">val </span><span class="identifier">absent</span><span class="symbol">: </span><span class="identifier">Boolean</span></code>
+<p>Returns <code>true</code> when <code>this</code> is None, otherwise <code>false</code>.</p>
+</td>
 </tr>
 <tr>
 <td>
 <a href="../present.html">present</a></td>
 <td>
-<code><span class="keyword">val </span><span class="identifier">present</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+<code><span class="keyword">val </span><span class="identifier">present</span><span class="symbol">: </span><span class="identifier">Boolean</span></code>
+<p>Returns <code>true</code> when <code>this</code> is <a href="../-some/index.html">Some</a>, otherwise <code>false</code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="to-string.html">toString</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">String</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -41,33 +60,54 @@
 <tbody>
 <tr>
 <td>
+<a href="../contains.html">contains</a></td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">contains</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Option$contains(kotlin.Any)/other">other</span><span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code>
+<p>Overloaded contains (in) operator.</p>
+</td>
+</tr>
+<tr>
+<td>
 <a href="../if-absent.html">ifAbsent</a></td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">ifAbsent</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Option$ifAbsent(kotlin.Function0((kotlin.Unit)))/right">right</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Unit</span><span class="symbol">)</span><span class="symbol">: </span><a href="../index.html"><span class="identifier">Option</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">fun </span><span class="identifier">ifAbsent</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Option$ifAbsent(kotlin.Function0((kotlin.Unit)))/right">right</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Unit</span><span class="symbol">)</span><span class="symbol">: </span><a href="../index.html"><span class="identifier">Option</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Invokes the given <a href="../if-absent.html#com.github.rs3vans.monadik.Option$ifAbsent(kotlin.Function0((kotlin.Unit)))/right">runnable</a> if <code>this</code> is None, otherwise does nothing.</p>
+</td>
 </tr>
 <tr>
 <td>
 <a href="../not.html">not</a></td>
 <td>
-<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">not</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">not</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code>
+<p>Overloaded not (\!) operator.</p>
+</td>
 </tr>
 <tr>
 <td>
 <a href="../to-left.html">toLeft</a></td>
 <td>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">U</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <span class="identifier">toLeft</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Option$toLeft(com.github.rs3vans.monadik.Option.toLeft.U)/right">right</span><span class="symbol">:</span>&nbsp;<span class="identifier">U</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../-either/index.html"><span class="identifier">Either</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="identifier">U</span><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">U</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <span class="identifier">toLeft</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Option$toLeft(com.github.rs3vans.monadik.Option.toLeft.U)/right">right</span><span class="symbol">:</span>&nbsp;<span class="identifier">U</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../-either/index.html"><span class="identifier">Either</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="identifier">U</span><span class="symbol">&gt;</span></code>
+<p>Converts this <a href="../index.html">Option</a> into a <a href="../../-either/-left/index.html">left</a> (of type <a href="#">T</a>) if <code>this</code> is an instance of <a href="../-some/index.html">Some</a>,
+otherwise returns a <a href="../../-either/-right/index.html">right</a> using the given <a href="../to-left.html#com.github.rs3vans.monadik.Option$toLeft(com.github.rs3vans.monadik.Option.toLeft.U)/right">value</a> (of type <a href="#">U</a>).</p>
+</td>
 </tr>
 <tr>
 <td>
 <a href="../to-right.html">toRight</a></td>
 <td>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">U</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <span class="identifier">toRight</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Option$toRight(com.github.rs3vans.monadik.Option.toRight.U)/left">left</span><span class="symbol">:</span>&nbsp;<span class="identifier">U</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../-either/index.html"><span class="identifier">Either</span></a><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">,</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">U</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <span class="identifier">toRight</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Option$toRight(com.github.rs3vans.monadik.Option.toRight.U)/left">left</span><span class="symbol">:</span>&nbsp;<span class="identifier">U</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../-either/index.html"><span class="identifier">Either</span></a><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">,</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Converts this <a href="../index.html">Option</a> into a <a href="../../-either/-right/index.html">right</a> (of type <a href="#">T</a>) if <code>this</code> is an instance of <a href="../-some/index.html">Some</a>,
+otherwise returns a <a href="../../-either/-left/index.html">left</a> using the given <a href="../to-right.html#com.github.rs3vans.monadik.Option$toRight(com.github.rs3vans.monadik.Option.toRight.U)/left">value</a> (of type <a href="#">U</a>).</p>
+</td>
 </tr>
 <tr>
 <td>
 <a href="../to-try.html">toTry</a></td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">toTry</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Option$toTry(kotlin.Function0((java.lang.Exception)))/exception">exception</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Exception.html"><span class="identifier">Exception</span></a>&nbsp;<span class="symbol">=</span>&nbsp;{ NullPointerException() }<span class="symbol">)</span><span class="symbol">: </span><a href="../../-try/index.html"><span class="identifier">Try</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">fun </span><span class="identifier">toTry</span><span class="symbol">(</span><span class="identifier" id="com.github.rs3vans.monadik.Option$toTry(kotlin.Function0((java.lang.Exception)))/exception">exception</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Exception.html"><span class="identifier">Exception</span></a>&nbsp;<span class="symbol">=</span>&nbsp;{ NullPointerException() }<span class="symbol">)</span><span class="symbol">: </span><a href="../../-try/index.html"><span class="identifier">Try</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Converts this <a href="../index.html">Option</a> into a <a href="../../-try/-success/index.html">successful</a> (of type <a href="#">T</a>) if <code>this</code> is an instance of <a href="../-some/index.html">Some</a>,
+otherwise returns a <a href="../../-try/-failure/index.html">failure</a> with the exception obtained by invoking <a href="../to-try.html#com.github.rs3vans.monadik.Option$toTry(kotlin.Function0((java.lang.Exception)))/exception">exception</a>.</p>
+</td>
 </tr>
 </tbody>
 </table>
