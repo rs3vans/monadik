@@ -35,13 +35,13 @@ class TrySpec : Spek({
     }
 
     describe("flatMap") {
-        it("should transformer a Success") {
+        it("should transform to a Success") {
             val x = Try<Int> { 1 }
             val y = x.flatMap { Try<String> { "" } }
             assertThat(y.isSuccess, equalTo(true))
         }
 
-        it("should be a Failure") {
+        it("should transform to a Failure") {
             val x = Try<Int> { throw IllegalStateException() }
             val y = x.flatMap { Try<String> { "" } }
             assertThat(y.isFailure, equalTo(true))
@@ -49,13 +49,13 @@ class TrySpec : Spek({
     }
 
     describe("map") {
-        it("should transformer a Success") {
+        it("should transform to a Success") {
             val x = Try<Int> { 1 }
             val y = x.map { "" }
             assertThat(y.isSuccess, equalTo(true))
         }
 
-        it("should be a Failure") {
+        it("should transform to a Failure") {
             val x = Try<Int> { throw IllegalStateException() }
             val y = x.map { "" }
             assertThat(y.isFailure, equalTo(true))
