@@ -7,6 +7,18 @@ import org.jetbrains.spek.api.dsl.describe
 import org.jetbrains.spek.api.dsl.it
 
 class TrySpec : Spek({
+    describe("operators") {
+        it("should return false for not()") {
+            val x = Try<Int> { 1 }
+            assertThat(!x, equalTo(false))
+        }
+
+        it("should return true for not()") {
+            val x = Try<Int> { throw IllegalStateException() }
+            assertThat(!x, equalTo(true))
+        }
+    }
+
     describe("construction") {
         it("should be a Success") {
             val x = Try<Int> { 1 }
@@ -90,15 +102,18 @@ class TrySpec : Spek({
         }
     }
 
-    describe("not") {
-        it("should be false") {
-            val x = Try<Int> { 1 }
-            assertThat(!x, equalTo(false))
+    describe("flatten") {
+        it("should flatten nested Success") {
+            val x = Try<Try<Int>> { Try<Int> { 1 } }
+            val y = x.flatten()
+            assertThat(y, isA<Try.Success<Int>>())
+            assertThat(y.value, equalTo(1))
         }
 
-        it("should be true") {
-            val x = Try<Int> { throw IllegalStateException() }
-            assertThat(!x, equalTo(true))
+        it("should NOT flatten Failure") {
+            val x = Try<Try<Int>> { throw IllegalStateException() }
+            val y = x.flatten()
+            assertThat(y, isA<Try.Failure>())
         }
     }
 

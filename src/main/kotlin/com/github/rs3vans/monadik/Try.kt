@@ -70,6 +70,11 @@ sealed class Try<out T : Any> {
     }
 }
 
+fun <T : Any> Try<Try<T>>.flatten(): Try<T> = when (this) {
+    is Try.Success -> value
+    is Try.Failure -> this
+}
+
 inline fun <T : Any> Try<T>.recoverWith(transformer: (Exception) -> Try<T>): Try<T> = when (this) {
     is Try.Success -> this
     is Try.Failure -> transformer(exception)

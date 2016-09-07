@@ -1,12 +1,12 @@
 package com.github.rs3vans.monadik
 
 sealed class Option<out T : Any> {
-    
+
     abstract val value: T
 
     val present: Boolean = this is Some
     val absent: Boolean = this is None
-    
+
     operator fun not() = absent
 
     class Some<out T : Any>(override val value: T) : Option<T>() {
@@ -14,7 +14,7 @@ sealed class Option<out T : Any> {
         override fun hashCode() = value.hashCode()
         override fun equals(other: Any?) = other is Option<*> && value.equals(other.value)
     }
-    
+
     object None : Option<Nothing>() {
         override val value: Nothing
             get() = throw NullPointerException()
@@ -65,6 +65,11 @@ sealed class Option<out T : Any> {
             None
         }
     }
+}
+
+fun <T : Any> Option<Option<T>>.flatten(): Option<T> = when (this) {
+    is Option.Some -> value
+    is Option.None -> this
 }
 
 inline fun <T : Any> Option<T>.orElseGet(other: () -> T): T = when (this) {

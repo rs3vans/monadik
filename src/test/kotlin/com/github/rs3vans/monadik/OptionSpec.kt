@@ -7,6 +7,18 @@ import org.jetbrains.spek.api.dsl.describe
 import org.jetbrains.spek.api.dsl.it
 
 class OptionSpec : Spek({
+    describe("operators") {
+        it("should return false for not()") {
+            val x = Option(1)
+            assertThat(!x, equalTo(false))
+        }
+
+        it("should return true for not()") {
+            val x = Option(null)
+            assertThat(!x, equalTo(true))
+        }
+    }
+
     describe("flatMap") {
         it("should transform") {
             val x = Option(1)
@@ -85,6 +97,21 @@ class OptionSpec : Spek({
             val x = Option(null)
             x.ifAbsent { return@it }
             assertThat("failure", 1, absent())
+        }
+    }
+
+    describe("flatten") {
+        it("should flatten nested Some") {
+            val x = Option(Option(1))
+            val y = x.flatten()
+            assertThat(y, isA<Option.Some<Int>>())
+            assertThat(y.value, equalTo(1))
+        }
+
+        it("should NOT flatten None") {
+            val x: Option<Option<Int>> = Option(null)
+            val y = x.flatten()
+            assertThat(y, isA<Option.None>())
         }
     }
 
